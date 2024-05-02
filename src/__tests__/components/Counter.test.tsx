@@ -5,6 +5,8 @@ describe('Counter Component test', () => {
 
     beforeEach(() => {
         render(<CounterPage />);
+        const buttonReset = screen.getByText('Reset counter');
+        fireEvent.click(buttonReset);
     })
 
     afterEach(async () => {
@@ -36,6 +38,6 @@ describe('Counter Component test', () => {
 
         const counter = +(screen.getByRole('paragraph').textContent)!;
 
-        expect(counter).toEqual(0);
+        expect(counter).toEqual(1);
     });
 });
